@@ -6,51 +6,21 @@ function bubbleSorter(input){
     throw new TypeError('Your input needs to be an array');
   }
 
-tempArr = [];
+ var theLength = input.length;
+ var theNum;
 
+    for(var i = 0; i < input.length; i++){
 
-
-  input.forEach(function(currelement, index, arr){
-    //validation of the last index
-    if(typeof index[i+1] !== 'number'){
-      //at the end, jsut take the last value and recurse here starting from the next index.. 0,1,2,3 etc..
-      return false
+      if(input[i + 1] === undefined){
+          console.log(input);
+          return input;
+      }else if(input[i] > input[i+1]){
+          var tempNum = input[i];
+          input[i] = input[i+1];
+          input[i + 1] = tempNum;
+      console.log(input);
+      }
     }
-
-
-    if(currelement < currelement[index+1]){
-      //the first number is smaller
-      //don't switch the order, move on tp the next index/recurse?
-    }
-    else{
-      //here current ele is smaller than the next ele
-      //test for the above line
-
-      //switch the elements place
-      //splice out all from before,
-
-    }
-
-
-
-  })
-
-
-
-
-
-
-  for(var i = 0; i < input.length; i++){
-
-
-    if(input[i] < input[i+1]){
-      //do nothing and move on to the next nums
-    }
-    else{
-
-    }
-  };
-
 
 
 
