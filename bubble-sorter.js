@@ -1,23 +1,25 @@
 
+function bubbleSorter(sortMe){
 
-function bubbleSorter(input){
+    if(!Array.isArray(sortMe)){
+      throw new TypeError('Your sortMe needs to be an array');
+    }
 
-  if(!Array.isArray(input)){
-    throw new TypeError('Your input needs to be an array');
-  }
-
- for(var j = 0; j < input.length; j++){
-    for(var i = 0; i < input.length; i++){
-      if(input[i] > input[i+1]){
-        var tempNum = input[i];
-        input[i] = input[i+1];
-        input[i + 1] = tempNum;
+    for(var j = 0; j < sortMe.length; j++){
+      for(var i = 0; i < sortMe.length; i++){
+        if(sortMe[i] > sortMe[i+1]){
+          var tempNum = sortMe[i];
+          sortMe[i] = sortMe[i+1];
+          sortMe[i + 1] = tempNum;
+        }
       }
     }
+    return sortMe;
   }
 
- return input;
 
-}
+module.exports = {
 
-module.exports = bubbleSorter;
+  bubbleSorter : bubbleSorter
+
+};
