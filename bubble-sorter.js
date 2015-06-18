@@ -1,5 +1,7 @@
 
-function bubbleSorter(sortMe){
+
+
+function _bubbleSorter(sortMe){
 
     if(!Array.isArray(sortMe)){
       throw new TypeError('Your sortMe needs to be an array');
@@ -18,8 +20,10 @@ function bubbleSorter(sortMe){
   }
 
 
+
 module.exports = {
 
-  bubbleSorter : bubbleSorter
+  bubbleSorter : _bubbleSorter
+
 
 };
