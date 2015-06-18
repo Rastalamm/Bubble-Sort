@@ -1,3 +1,4 @@
+
 #Bubble-Sort
 There are many algorithms that deal with sorting collections of data. One of the most basic forms of sorting is known as __Bubble Sort__ and is named by it's nature of the order of data having a "bubbling" effect as a collection of data is sorted. We will start off by implementing a Bubble Sort algorithm on a one-dimensional Array.
 
@@ -15,3 +16,5 @@ Create a way for all Arrays to be able to use your bubble sort function as a met
 
 ###Super Extra
 Write a browser tool that will visually show the array and it's values as they are being sorted to see how the elements are moving in real time. It will be impossible to see things being sorted in real time, so you may need to tweak your function to make this work or find new ways of calling it.
+
+
