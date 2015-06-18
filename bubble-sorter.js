@@ -16,9 +16,11 @@ function _bubbleSorter(sortMe){
   return sortMe;
 }
 
+//Setting the bubble short to the Array prototype
+Array.prototype.bubbleSort = _bubbleSorter;
+
 module.exports = {
 
   bubbleSorter : _bubbleSorter
-
 
 };
