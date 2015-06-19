@@ -14,32 +14,68 @@ var bubbleSortApp = (function (){
   var numberInput;
   var dotHouse = document.getElementById('dot_house');
 
-    document.getElementById('submit_button').addEventListener('click', function(){
-      _sorter([3, 4, 78, 89, 8, 1, 875, 994, 5, 2, 4, 56]);
-      _display(sortedInput);
-    });
+  var arrayInput = [];
 
-var sortedInput;
-  function _sorter(sortMe){
+  function _randomArray(num){
 
-    if(!Array.isArray(sortMe)){
-      throw new TypeError('Your sortMe needs to be an array');
-    }
+    for( var i = 0; i < num; i++)
 
-    for(var j = 0; j < sortMe.length; j++){
-      for(var i = 0; i < sortMe.length; i++){
-        if(sortMe[i] > sortMe[i+1]){
-          var tempNum = sortMe[i];
-          sortMe[i] = sortMe[i+1];
-          sortMe[i + 1] = tempNum;
-          console.log('running');
-        }
-      }
-    }
-    sortedInput = sortMe;
-    return sortMe;
+    arrayInput.push(Math.floor(Math.random()* num));
+    console.log(Math.floor(Math.random()* num))
   }
 
+
+
+
+  var sortedInput = [];
+
+    document.getElementById('display_button').addEventListener('click', function(){
+      console.log(document.getElementById('numbers_to_sort').value);
+
+      _randomArray(document.getElementById('numbers_to_sort').value)
+
+    _display(arrayInput);
+
+    });
+
+    document.getElementById('sort_button').addEventListener('click', function(){
+
+
+      setInterval(function(){
+        _sorter(arrayInput);
+
+      } , 100);
+
+
+    });
+
+
+
+
+
+
+
+  function _sorter(){
+
+    var first;
+    var second;
+
+      for(var i = 0; i < arrayInput.length - 1; i++){
+
+         first = parseInt(document.getElementById('box' + i).style.height);
+         second = parseInt(document.getElementById('box' + (1+i)).style.height);
+
+
+        if(first > second){
+          document.getElementById('box' + i).style.height = second + 'px';
+          document.getElementById('box' + (1+i)).style.height = first + 'px';
+
+        }
+      }
+  }
+
+  var colorArray = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];;
+  var colorArrayLength = colorArray.length;
 
 
 
@@ -49,17 +85,14 @@ var sortedInput;
       var aBox = document.createElement('div');
       aBox.setAttribute('id', 'box' + i );
       aBox.setAttribute('class', 'a_box');
-      aBox.innerHTML = i;
-      aBox.style.width = sortedArr[i] *10 + 'px';
+      randomColor = Math.floor(Math.random() * (colorArrayLength + 1))
+      aBox.style.backgroundColor = colorArray[randomColor];
+      aBox.style.height = sortedArr[i] *1+ 'px';
       console.log(aBox.offSetHeight)
       dotHouse.appendChild(aBox);
     }
 
-
-
-
   }
-
 
 
   return{
