@@ -1,0 +1,15 @@
+.a_box{
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  color: white;
+  display: block;
+  font-size: 8px;
+}
+
+#dot_house{
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  padding: 25px;
+}
