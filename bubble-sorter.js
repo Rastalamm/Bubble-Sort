@@ -18,10 +18,13 @@ var bubbleSortApp = (function (){
 
   function _randomArray(num){
 
-    for( var i = 0; i < num; i++)
+    if(num > 600){
+      num = 600;
+    }
 
-    arrayInput.push(Math.floor(Math.random()* num));
-    console.log(Math.floor(Math.random()* num))
+    for( var i = 0; i < num; i++){
+      arrayInput.push(Math.floor(Math.random()* num));
+    }
   }
 
 
@@ -29,16 +32,16 @@ var bubbleSortApp = (function (){
 
   var sortedInput = [];
 
-    document.getElementById('display_button').addEventListener('click', function(){
-      console.log(document.getElementById('numbers_to_sort').value);
+
+    document.getElementById('sort_button').addEventListener('click', function(){
+
+        if(typeof document.getElementById('numbers_to_sort').value === 'number' || document.getElementById('numbers_to_sort').value <1 ){
+          alert('I need to be big number!')
+        }
 
       _randomArray(document.getElementById('numbers_to_sort').value)
 
-    _display(arrayInput);
-
-    });
-
-    document.getElementById('sort_button').addEventListener('click', function(){
+      _display(arrayInput);
 
 
       setInterval(function(){
