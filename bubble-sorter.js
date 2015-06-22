@@ -22,14 +22,15 @@ var bubbleSortApp = (function (){
       num = 600;
     }
 
-    for( var i = 0; i < num; i++){
-      arrayInput.push(Math.floor(Math.random()* num));
+    for(var i = 1; i <= num; i++){
+      arrayInput.push(i);
     }
   }
 
+
+
+
   var sortedInput = [];
-
-
     document.getElementById('sort_button').addEventListener('click', function(){
 
         if(typeof document.getElementById('numbers_to_sort').value === 'number' || document.getElementById('numbers_to_sort').value <1 ){
@@ -49,12 +50,6 @@ var bubbleSortApp = (function (){
 
     });
 
-
-
-
-
-
-
   function _sorter(){
 
     var first;
@@ -64,7 +59,6 @@ var bubbleSortApp = (function (){
 
          first = parseInt(document.getElementById('box' + i).style.height);
          second = parseInt(document.getElementById('box' + (1+i)).style.height);
-
 
         if(first > second){
           document.getElementById('box' + i).style.height = second + 'px';
@@ -87,8 +81,12 @@ var bubbleSortApp = (function (){
       aBox.setAttribute('class', 'a_box');
       randomColor = Math.floor(Math.random() * (colorArrayLength + 1))
       aBox.style.backgroundColor = colorArray[randomColor];
-      aBox.style.height = sortedArr[i] *1+ 'px';
-      console.log(aBox.offSetHeight)
+      aBox.style.height = 1 + 'px';
+      aBox.style.position = 'absolute';
+      console.log(arrayInput.splice(arrayInput[Math.floor(Math.random() * arrayInput.length +1)], 1) + 'px');
+      aBox.style.top =  arrayInput.splice(arrayInput[Math.floor(Math.random() * arrayInput.length +1)], 1) + 'px';
+      aBox.style.left =  arrayInput.splice(arrayInput[Math.floor(Math.random() * arrayInput.length +1)], 1) + 'px';
+
       dotHouse.appendChild(aBox);
     }
 
