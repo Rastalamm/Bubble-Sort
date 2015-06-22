@@ -83,8 +83,7 @@ var bubbleSortApp = (function (){
       aBox.style.backgroundColor = colorArray[randomColor];
       aBox.style.height = 1 + 'px';
       aBox.style.position = 'absolute';
-      console.log(arrayInput.splice(arrayInput[Math.floor(Math.random() * arrayInput.length +1)], 1) + 'px');
-      aBox.style.top =  arrayInput.splice(arrayInput[Math.floor(Math.random() * arrayInput.length +1)], 1) + 'px';
+      aBox.style.top =  i + 'px';
       aBox.style.left =  arrayInput.splice(arrayInput[Math.floor(Math.random() * arrayInput.length +1)], 1) + 'px';
 
       dotHouse.appendChild(aBox);
