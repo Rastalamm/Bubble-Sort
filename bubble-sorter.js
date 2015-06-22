@@ -27,9 +27,6 @@ var bubbleSortApp = (function (){
     }
   }
 
-
-
-
   var sortedInput = [];
 
 
