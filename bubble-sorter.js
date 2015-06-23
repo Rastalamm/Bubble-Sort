@@ -22,7 +22,7 @@ var bubbleSortApp = (function (){
     _display(arrayInput);
 
     setInterval(function(){
-      _sorter(arrayInput);
+      _sorter();
 
     } , 100);
 
